@@ -1,11 +1,26 @@
-var options = ["rock", "paper", "scissors"];
+let options = ["rock", "paper", "scissors"];
+let computerSelection = computerPlay();
 
 function computerPlay() {
-  result = options[Math.floor(Math.random() * options.length)];
+  let result = options[Math.floor(Math.random() * options.length)];
   return result;
 }
 
-var playerSelection = prompt("Choose rock, paper, or scissors!");
-var computerSelection = computerPlay();
+let playerSelection = playerPlay();
 
-console.log(playerSelection.toLowerCase(), computerSelection);
+function playerPlay() {
+  while (true) {
+    let result = prompt("Choose rock, paper, or scissors!");
+    if (options.includes(result.toLowerCase())) {
+      break;
+    }
+    alert("Please enter a valid answer.")
+  }
+  return result.toLowerCase();
+}
+
+function playRound(playerSelection, computerSelection) {
+
+}
+
+console.log(playerSelection, computerSelection);
