@@ -24,11 +24,31 @@ function playerPlay() {
   return input;
 }
 
+// Set
+let roundWinner = playRound();
 
 // Play a round player vs computer
-function playRound(playerSelection, computerSelection) {
-
+function playRound() {
+  let winner;
+  if ((playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")) {
+    winner = "Player wins.";
+  }
+  else if ((computerSelection === "rock" && playerSelection === "scissors") ||
+    (computerSelection === "paper" && playerSelection === "rock") ||
+    (computerSelection === "scissors" && playerSelection === "paper")) {
+    winner = "Ouch! Computer wins.";
+  }
+  else {
+    winner = `No winners here, ${computerSelection} does not beat ${playerSelection}.`;
+  }
+  return winner;
 }
 
 // Display player and computer selections in console
-console.log(playerSelection, computerSelection);
+console.log("Player chooses " + playerSelection);
+console.log("Computer chooses " + computerSelection);
+
+// Display round winner in console
+console.log(roundWinner);
