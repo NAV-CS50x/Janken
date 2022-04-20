@@ -28,17 +28,17 @@ function playRound() {
   if ((playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")) {
-    winner = "Player wins.";
+    winner = " * Player wins.";
     playerScore++;
   }
   else if ((computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")) {
-    winner = "Ouch! Computer wins.";
+    winner = " * Ouch! Computer wins.";
     computerScore++;
   }
   else {
-    winner = `No winners here, ${computerSelection} does not beat ${playerSelection}.`;
+    winner = ` * No winners here, ${computerSelection} does not beat ${playerSelection}.`;
     tieScore++;
   }
   console.log(winner);
@@ -50,6 +50,7 @@ let totalRounds = 5;
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
+let gameWinner = "";
 
 function game() {
   for (let i = 0; i < totalRounds; i++) {
@@ -58,4 +59,17 @@ function game() {
   }
 }
 
+function calculateWinner() {
+  if (playerScore > computerScore) {
+    console.log(" *** You beat the computer, best of five.")
+  }
+  else if (computerScore > playerScore) {
+    console.log(" *** The computer beat you.  Skynet launch imminent.")
+  }
+  else {
+    console.log(" *** You are evenly matched with the computer.")
+  }
+}
+
 game();
+calculateWinner();
