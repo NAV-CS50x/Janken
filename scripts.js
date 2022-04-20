@@ -2,14 +2,14 @@
 const selection = ["rock", "paper", "scissors"];
 
 // Get random selection from options
-function computerPlay() {
+function getComputerSelection() {
   let result = selection[Math.floor(Math.random() * selection.length)];
   console.log("Computer chooses " + result);
   return result;
 }
 
 // Get valid selection from player
-function playerPlay() {
+function getPlayerSelection() {
   let input = prompt("Choose rock, paper, or scissors!");
   while (!selection.includes(input.toLowerCase())) {
     alert("Please enter a valid answer.")
@@ -22,8 +22,8 @@ function playerPlay() {
 
 // Play a round player vs computer
 function playRound() {
-  let playerSelection = playerPlay();
-  let computerSelection = computerPlay();
+  let playerSelection = getPlayerSelection();
+  let computerSelection = getComputerSelection();
   let winner;
   if ((playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
@@ -52,7 +52,7 @@ let computerScore = 0;
 let tieScore = 0;
 let gameWinner = "";
 
-function game() {
+function playGame() {
   for (let i = 0; i < totalRounds; i++) {
     playRound();
     console.log(playerScore, computerScore, tieScore);
@@ -71,5 +71,5 @@ function calculateWinner() {
   }
 }
 
-game();
+playGame();
 calculateWinner();
