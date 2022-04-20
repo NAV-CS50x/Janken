@@ -22,6 +22,8 @@ function playerPlay() {
 
 // Play a round player vs computer
 function playRound() {
+  let playerSelection = playerPlay();
+  let computerSelection = computerPlay();
   let winner;
   if ((playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
@@ -39,12 +41,6 @@ function playRound() {
   console.log(winner);
   return winner;
 }
-
-// Set
-let playerSelection = playerPlay();
-
-// Set
-let computerSelection = computerPlay();
 
 // Set
 let roundWinner = playRound();
