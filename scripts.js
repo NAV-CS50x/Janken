@@ -1,12 +1,11 @@
-// Define options of rock, paper, scissors
+// Set selection of rock, paper, scissors
 const selection = ["rock", "paper", "scissors"];
 
-// Get random selection from options
-function getComputerSelection() {
-  let result = selection[Math.floor(Math.random() * selection.length)];
-  console.log("Computer chooses " + result);
-  return result;
-}
+// Set
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
+let totalRounds = 5;
 
 // Get valid selection from player
 function getPlayerSelection() {
@@ -20,7 +19,14 @@ function getPlayerSelection() {
   return input;
 }
 
-// Play a round player vs computer
+// Get random selection from computer
+function getComputerSelection() {
+  let result = selection[Math.floor(Math.random() * selection.length)];
+  console.log("Computer chooses " + result);
+  return result;
+}
+
+// Compare selections to choose winner
 function playRound() {
   let playerSelection = getPlayerSelection();
   let computerSelection = getComputerSelection();
@@ -45,13 +51,7 @@ function playRound() {
   return winner;
 }
 
-//Set
-let totalRounds = 5;
-let playerScore = 0;
-let computerScore = 0;
-let tieScore = 0;
-let gameWinner = "";
-
+// Play totalRounds number of rounds
 function playGame() {
   for (let i = 0; i < totalRounds; i++) {
     playRound();
@@ -59,6 +59,7 @@ function playGame() {
   }
 }
 
+// Calculate and declare winner
 function calculateWinner() {
   if (playerScore > computerScore) {
     console.log(" *** You beat the computer, best of five.")
