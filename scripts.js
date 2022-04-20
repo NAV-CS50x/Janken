@@ -29,14 +29,17 @@ function playRound() {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")) {
     winner = "Player wins.";
+    playerScore++;
   }
   else if ((computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")) {
     winner = "Ouch! Computer wins.";
+    computerScore++;
   }
   else {
     winner = `No winners here, ${computerSelection} does not beat ${playerSelection}.`;
+    tieScore++;
   }
   console.log(winner);
   return winner;
@@ -44,10 +47,14 @@ function playRound() {
 
 //Set
 let totalRounds = 5;
+let playerScore = 0;
+let computerScore = 0;
+let tieScore = 0;
 
 function game() {
   for (let i = 0; i < totalRounds; i++) {
     playRound();
+    console.log(playerScore, computerScore, tieScore);
   }
 }
 
