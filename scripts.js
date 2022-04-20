@@ -1,17 +1,12 @@
 // Define options of rock, paper, scissors
 const selection = ["rock", "paper", "scissors"];
 
-// Set
-let computerSelection = computerPlay();
-
 // Get random selection from options
 function computerPlay() {
   let result = selection[Math.floor(Math.random() * selection.length)];
+  console.log("Computer chooses " + result);
   return result;
 }
-
-// Set
-let playerSelection = playerPlay();
 
 // Get valid selection from player
 function playerPlay() {
@@ -21,11 +16,9 @@ function playerPlay() {
     input = prompt("Choose rock, paper, or scissors!")
   }
   input = input.toLowerCase();
+  console.log("Player chooses " + input);
   return input;
 }
-
-// Set
-let roundWinner = playRound();
 
 // Play a round player vs computer
 function playRound() {
@@ -43,12 +36,15 @@ function playRound() {
   else {
     winner = `No winners here, ${computerSelection} does not beat ${playerSelection}.`;
   }
+  console.log(winner);
   return winner;
 }
 
-// Display player and computer selections in console
-console.log("Player chooses " + playerSelection);
-console.log("Computer chooses " + computerSelection);
+// Set
+let playerSelection = playerPlay();
 
-// Display round winner in console
-console.log(roundWinner);
+// Set
+let computerSelection = computerPlay();
+
+// Set
+let roundWinner = playRound();
