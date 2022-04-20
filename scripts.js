@@ -42,5 +42,13 @@ function playRound() {
   return winner;
 }
 
-// Set
-let roundWinner = playRound();
+//Set
+let totalRounds = 5;
+
+function game() {
+  for (let i = 0; i < totalRounds; i++) {
+    playRound();
+  }
+}
+
+game();
