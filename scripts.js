@@ -72,5 +72,5 @@ function calculateWinner() {
   }
 }
 
-playGame();
-calculateWinner();
+// playGame();
+// calculateWinner();
