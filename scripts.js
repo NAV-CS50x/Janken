@@ -2,19 +2,15 @@
 const selection = ["rock", "paper", "scissors"];
 
 // Set
+let playerClick = "";
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
 let totalRounds = 5;
 
-// Get valid selection from player
+// Get player selection
 function getPlayerSelection() {
-  let input = prompt("Choose rock, paper, or scissors!");
-  while (!selection.includes(input.toLowerCase())) {
-    alert("Please enter a valid answer.")
-    input = prompt("Choose rock, paper, or scissors!")
-  }
-  input = input.toLowerCase();
+  let input = playerClick;
   console.log("Player chooses " + input);
   return input;
 }
@@ -53,7 +49,7 @@ function playRound() {
 
 // Play totalRounds number of rounds
 function playGame() {
-  for (let i = 0; i < totalRounds; i++) {
+  if (playerScore < 5 && computerScore < 5) {
     playRound();
     console.log(playerScore, computerScore, tieScore);
   }
@@ -70,6 +66,25 @@ function calculateWinner() {
   else {
     console.log(" *** You are evenly matched with the computer.")
   }
+}
+
+document.querySelector("#rock").addEventListener("click", setRock);
+document.querySelector("#paper").addEventListener("click", setPaper);
+document.querySelector("#scissors").addEventListener("click", setScissors);
+
+function setRock() {
+  playerClick = "rock";
+  playGame();
+}
+
+function setPaper() {
+  playerClick = "paper";
+  playGame();
+}
+
+function setScissors() {
+  playerClick = "scissors";
+  playGame();
 }
 
 // playGame();
