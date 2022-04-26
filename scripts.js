@@ -8,6 +8,10 @@ let computerScore = 0;
 let tieScore = 0;
 let totalRounds = 5;
 
+document.querySelector("#playerScore").innerText = playerScore;
+document.querySelector("#computerScore").innerText = computerScore;
+document.querySelector("#tieScore").innerText = tieScore;
+
 // Get player selection
 function getPlayerSelection() {
   let input = playerClick;
@@ -32,16 +36,19 @@ function playRound() {
     (playerSelection === "scissors" && computerSelection === "paper")) {
     winner = " * Player wins.";
     playerScore++;
+    document.querySelector("#playerScore").innerText = playerScore;
   }
   else if ((computerSelection === "rock" && playerSelection === "scissors") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissors" && playerSelection === "paper")) {
     winner = " * Ouch! Computer wins.";
     computerScore++;
+    document.querySelector("#computerScore").innerText = computerScore;
   }
   else {
     winner = ` * No winners here, ${computerSelection} does not beat ${playerSelection}.`;
     tieScore++;
+    document.querySelector("#tieScore").innerText = tieScore;
   }
   console.log(winner);
   return winner;

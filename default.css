@@ -52,6 +52,10 @@ img {
   height: 200px;
 }
 
+span {
+  color: #8fff40;
+}
+
 footer {
   position: fixed;
   bottom: 0;
