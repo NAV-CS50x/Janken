@@ -18,6 +18,7 @@ h1 {
   padding: 10px;
   background: linear-gradient(#ff9500, #bd6e00);
 }
+
 h2 {
   color: #8fff40;
 }
@@ -43,7 +44,7 @@ figcaption {
   font-size: smaller;
 }
 
-figure:hover > figcaption{
+figure:hover>figcaption {
   color: #8fff40;
 }
 
@@ -54,6 +55,18 @@ img {
 
 span {
   color: #8fff40;
+}
+
+.reset {
+  width: 200px;
+  color: #ffffff;
+  background-color: #bd6e00;
+  border-radius: 4px;
+  margin: 20px auto;
+}
+
+.reset:hover {
+  background: #ff9500;
 }
 
 footer {

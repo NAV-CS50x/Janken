@@ -12,6 +12,9 @@ let playerClick = "";
 let playerScore = 0;
 let computerScore = 0;
 let tieScore = 0;
+let headerP = document.querySelector("header>p").innerText;
+let gameH2 = document.querySelector(".game>h2").innerText;
+let reset = document.querySelector(".score>h2");
 
 // Get and set playerClick
 document.querySelector("#rock").addEventListener("click", setRock);
@@ -84,6 +87,8 @@ function calculateWinner() {
       gameWinner = "You are evenly matched with the computer!"
     }
     document.querySelector(".game>h2").innerText = gameWinner;
+    reset.innerText = "Reset Game?";
+    reset.classList.add("reset");
     return gameWinner;
   }
 }
@@ -92,3 +97,21 @@ function calculateWinner() {
 document.querySelector("#playerScore").innerText = playerScore;
 document.querySelector("#computerScore").innerText = computerScore;
 document.querySelector("#tieScore").innerText = tieScore;
+
+
+// Reset page for new game
+reset.addEventListener("click", resetGame);
+
+function resetGame() {
+  reset.innerText = "Round Scoring";
+  reset.classList.remove("reset");
+  document.querySelector("header>p").innerText = headerP;
+  document.querySelector(".game>h2").innerText = gameH2;
+  playerClick = "";
+  playerScore = 0;
+  computerScore = 0;
+  tieScore = 0;
+  document.querySelector("#playerScore").innerText = playerScore;
+  document.querySelector("#computerScore").innerText = computerScore;
+  document.querySelector("#tieScore").innerText = tieScore;
+}
